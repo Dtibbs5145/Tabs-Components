@@ -4,7 +4,6 @@ class TabLink {
     // Assign this.element to the passed in DOM element
     this.element = element;
 
-    
     // Get the custom data attribute on the Link
     // this.data;
     
@@ -20,34 +19,35 @@ class TabLink {
 
   select() {
     // Get all of the elements with the tabs-link class
-    // const links;
+    const links = this.element.querySelectorAll('.tab-links');
 
     // Using a loop or the forEach method remove the 'tabs-link-selected' class from all of the links
-    // Array.from(links).forEach();
+    Array.from(links).forEach();
+    links.classList.remove('.tabs-item-selected');
 
     // Add a class named "tabs-link-selected" to this link
-    // this.element;
+    this.element.classList.add(".tabs-item-selected");
     
     // Call the select method on the item associated with this link
-
+    this.element.select()
   }
 }
 
 class TabItem {
   constructor(element) {
     // Assign this.element to the passed in element
-    // this.element;
+    this.element = element;
   }
 
   select() {
     // Select all ".tabs-item" elements from the DOM
-    const items = document.querySelectorAll('.tab-items');
-
-    // Remove the class "tabs-item-selected" from each element
+    let items = document.querySelectorAll('.tab-items');
     
+    // Remove the class "tabs-item-selected" from each element
+    items.classList.remove('.tabs-item-selected');
     
     // Add a class named "tabs-item-selected" to this element
-    //this.element;
+    this.element.classList.add(".tabs-item-selected");
   }
 }
 
@@ -60,5 +60,5 @@ class TabItem {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each link as a parameter
 
 */
-let links = document.querySelectorAll('.tabs-link');
+links = document.querySelectorAll('.tabs-link');
 links.forEach(link => new TabLink(link));
